@@ -12,6 +12,8 @@ pipeline {
        stage('Terraform init'){
            steps {
                withAWS(credentials: 'aws-terraform-user', region: 'us-east-1'){
+               sh 'terraform fmt'
+               sh 'terraform validate'    
                sh 'terraform init'
                }
            }
