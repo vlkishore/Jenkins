@@ -16,7 +16,7 @@ pipeline {
                }
            }
        }
-       stage('Terraform plan'){
+       stage('Terraform new plan'){
            steps {
                withAWS(credentials: 'aws-terraform-user', region: 'us-east-1'){
                sh 'terraform plan'
