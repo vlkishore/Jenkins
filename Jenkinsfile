@@ -25,5 +25,12 @@ pipeline {
                }
            }
        }
+        stage('Terraform apply'){
+           steps {
+               withAWS(credentials: 'aws-terraform-user', region: 'us-east-1'){
+               sh 'terraform apply --auto-approve'
+               }
+           }
+       }
    }
 }
