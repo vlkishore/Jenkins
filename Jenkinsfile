@@ -32,5 +32,12 @@ pipeline {
                }
            }
        }
+       stage('Terraform output'){
+           steps {
+               withAWS(credentials: 'aws-terraform-user', region: 'us-east-1'){
+               sh 'terraform output'
+               }
+           }
+       }
    }
 }
